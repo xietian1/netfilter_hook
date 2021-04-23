@@ -1,0 +1,1 @@
+cmd_/home/xt/netfilter_hook/mydrv.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id=sha1  -T ./scripts/module-common.lds -o /home/xt/netfilter_hook/mydrv.ko /home/xt/netfilter_hook/mydrv.o /home/xt/netfilter_hook/mydrv.mod.o;  true
