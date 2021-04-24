@@ -46,7 +46,7 @@ sudo python3 user_space.py
 
 It should save the TLS packets forwarded from the kernel space to the file `test.pcap`. 
 
-# Part 3: Pharse Module
+# Part 3: Phrase Module
 This part is stored in the folder `pharse`.
 
 This module will extract the certificate from the trace `test.pcap` from *User Space Module* and validate the certificate (i.e., check expiration, validate if the certificate is trusted). 
