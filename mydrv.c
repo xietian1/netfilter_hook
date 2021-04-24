@@ -114,7 +114,6 @@ unsigned int my_func(void *priv,
                     recorded = true;
                     return NF_QUEUE;
                 
-                    // u_short u_cipher = handshake_h->cipher_suit[0] * 256 + handshake_h->cipher_suit[1];
                     // if(u_cipher == TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256){
                     //     printk("It is TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256!\n");
                     //     //packettoread = 1;
@@ -148,12 +147,6 @@ unsigned int my_func(void *priv,
         //printk("tcph->dest = %d\n", ntohs(tcph->dest));
 	    //printk("tcph->source = %d\n", ntohs(tcph->source));
         //printk("*********************************************\n");
-        
-   
-    
-
-    //if(ntohs(tcph->dest) != 80)
-    //    return NF_ACCEPT;
 
     return NF_ACCEPT;
 
@@ -171,7 +164,7 @@ static __init int mydrv_init(void)
     struct net *n;
     for_each_net(n)
         ret += nf_register_net_hook(n, &nfho);
-
+   printk("kernel module mydrv start!\n");
    printk("nf_register_hook returnd %d\n", ret);
    return 0;
 }
@@ -181,7 +174,7 @@ static __exit void mydrv_exit(void)
 struct net *n;
     for_each_net(n)
         nf_unregister_net_hook(n, &nfho);
-        printk("helloworld exit!\n");
+        printk("kernel module mydrv exit!\n");
 }
  
 module_init(mydrv_init);
